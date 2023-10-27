@@ -8,7 +8,11 @@ from hugchat.login import Login
 
 # FLASK
 from flask import Flask, request
+from flask_cors import CORS
+
 app = Flask(__name__)
+cors = CORS(app, resources={r"/chat/*": {"origins": "*"}})
+
 
 load_dotenv(find_dotenv())
 EMAIL = os.getenv("EMAIL")
@@ -27,6 +31,8 @@ chatbot = hugchat.ChatBot(cookies=cookies.get_dict())  # or cookie_path="usercoo
 
 @app.route("/chat", methods=["POST"])
 def huggingChat():
+
+    print(request)
 
     # non stream response
     msg = request.get_json()
