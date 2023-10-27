@@ -11,6 +11,7 @@ Activar en modo de entorno virtual
 - pip install flask
 - pip install hugchat
 - pip install python-dotenv
+- pip instsll flask-cors
 
 ## Stack Tecnológico
 - Python
